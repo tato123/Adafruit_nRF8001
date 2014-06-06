@@ -30,6 +30,10 @@ All text above, and the splash screen below must be included in any redistributi
 
 #include "Adafruit_BLE_UART.h"
 
+#if defined __AVR__
+#define PSTR(s) (__extension__({static const char __c[] PROGMEM = (s); &__c[0];}))
+#endif
+
 /* Get the service pipe data created in nRFGo Studio */
 #ifdef SERVICES_PIPE_TYPE_MAPPING_CONTENT
     static services_pipe_type_mapping_t
